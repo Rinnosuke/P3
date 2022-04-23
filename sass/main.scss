@@ -1,0 +1,8 @@
+@import "./utils/variables";
+@import "./utils/mixin";
+@import "./base/base";
+
+header {
+    background: black;
+    @include desktop-only{color: white;}
+}

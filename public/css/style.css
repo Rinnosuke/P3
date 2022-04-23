@@ -1,0 +1,10 @@
+header {
+  background: black;
+}
+@media (min-width: 992px) {
+  header {
+    color: white;
+  }
+}
+
+/*# sourceMappingURL=style.css.map */
