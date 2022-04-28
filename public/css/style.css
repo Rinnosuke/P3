@@ -1,10 +1,39 @@
-header {
-  background: black;
+body {
+  font-family: "Roboto", sans-serif;
 }
-@media (min-width: 992px) {
-  header {
-    color: white;
-  }
+
+h1 {
+  font-family: "Shrikhand", cursive;
+}
+
+/*
+li { display: block; }
+*/
+.fonctionnement__instruction {
+  counter-reset: item;
+  list-style-type: none;
+}
+.fonctionnement__instruction::before {
+  display: inline-block;
+  height: 22px;
+  width: 22px;
+  position: relative;
+  text-align: center;
+  left: -20px;
+  z-index: -1;
+  background-color: purple;
+  border-radius: 30px;
+  content: counter(item) "";
+  counter-increment: item;
+  color: white;
+}
+
+.footer {
+  /*&__link{
+  }*/
+}
+.footer ul {
+  list-style-type: none;
 }
 
 /*# sourceMappingURL=style.css.map */
