@@ -2,37 +2,9 @@
 @import "./utils/mixin";
 @import "./base/base";
 @import "./base/typography";
-
-/*
-li { display: block; }
-*/
-
-.fonctionnement{
-    &__instruction{
-        
-        counter-reset: item;
-        list-style-type: none;
-        &::before{
-            display: inline-block;
-            height: 22px;
-            width: 22px;
-            position: relative;
-            text-align: center;
-            left: -20px;
-            z-index: -1;
-            background-color: purple;
-            border-radius: 30px;
-            content: counter(item) ""; 
-            counter-increment: item;
-            color: white;
-            }
-    }
-}
-
-.footer{
-    & ul{
-        list-style-type: none;
-    }
-    /*&__link{
-    }*/
-}
+@import "./layout/header";
+@import "./layout/nav";
+@import "./layout/footer";
+@import "./pages/index";
+@import "./pages/restaurants";
+@import "./components/heart";
