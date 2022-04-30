@@ -1,20 +1,7 @@
 .nav{
-    background: linear-gradient($color-seco, 60%, $color-prim);
-    border-radius: 50px;
-    height: 50px;
-    width: 220px;
-    text-align: center;
-    padding-top: 15px;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    box-shadow: 0px 5px 5px rgba(0,0,0,0.2);
     &__link{
         color: white;
         text-decoration: none;
     }
-    transition: all 300ms;
-    &:hover{
-        opacity: 0.9;
-        box-shadow:0px 5px 5px rgba(0,0,0,0.4);
-    }
 }
+

@@ -1,5 +1,53 @@
+@keyframes heart{
+    0%{
+        transform: scale(0);
+        opacity: 0.3;
+    }
+    10%{
+        transform: scale(0);
+        opacity: 0.3;
+    }
+    35%{
+        transform: scale(0.2);
+        opacity: 0.4;
+    }
+    50%{
+        transform: scale(0.4);
+        opacity: 0.5;
+    }
+    55%{
+        transform: scale(0.7);
+        opacity: 0.6;
+    }
+    75%{
+        transform: scale(1.1);
+        opacity: 1;
+    }
+    100%{
+        transform: scale(1.1);
+        opacity: 1;
+    }
+}
 .heart{
-    opacity: 0.5;
-    position: relative;
-    right: 30px;
+    &__full{
+
+        position: relative;
+        right: 35px;
+        
+        background: linear-gradient($color-prim, $color-seco);
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+    
+        
+
+        animation: heart 1300ms both paused infinite;
+        &:hover{
+            animation-play-state: running;
+        }
+    }
+    &__empty{
+        &:hover +.heart__full{
+            animation-play-state: running;
+        }
+    }
 }

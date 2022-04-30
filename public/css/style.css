@@ -37,25 +37,9 @@ h1 {
   margin-right: 10px;
 }
 
-.nav {
-  background: linear-gradient(#FF79DA, 60%, #9356DC);
-  border-radius: 50px;
-  height: 50px;
-  width: 220px;
-  text-align: center;
-  padding-top: 15px;
-  margin-top: 20px;
-  margin-bottom: 20px;
-  box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.2);
-  transition: all 300ms;
-}
 .nav__link {
   color: white;
   text-decoration: none;
-}
-.nav:hover {
-  opacity: 0.9;
-  box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.4);
 }
 
 .footer {
@@ -84,9 +68,6 @@ h1 {
   width: 20px;
 }
 
-/*
-li { display: block; }
-*/
 .description {
   background-color: #f6f6f6;
   text-align: center;
@@ -121,8 +102,8 @@ li { display: block; }
   margin-bottom: 20px;
   background-color: #f6f6f6;
   border-radius: 20px;
-  box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.1);
   font-weight: bold;
+  box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.1);
   transition: all 300ms;
   list-style-type: none;
 }
@@ -163,18 +144,24 @@ li { display: block; }
   padding-top: 40px;
   padding-bottom: 20px;
 }
+.restaurants .heart {
+  position: absolute;
+  right: 15px;
+  margin-top: 220px;
+  font-size: 28px;
+}
 
 .card {
   display: flex;
   flex-direction: column;
   background-color: white;
   color: black;
-  box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.2);
   height: 280px;
   margin-top: 20px;
   margin-bottom: 20px;
   border-radius: 20px;
   text-decoration: none;
+  box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.2);
   transition: all 300ms;
 }
 .card:hover {
@@ -199,17 +186,128 @@ li { display: block; }
   margin-left: 10px;
   margin-top: 10px;
 }
-.card i {
-  position: absolute;
-  right: 30px;
-  margin-top: 220px;
-  font-size: 20px;
+
+@keyframes heart {
+  0% {
+    transform: scale(0);
+    opacity: 0.3;
+  }
+  10% {
+    transform: scale(0);
+    opacity: 0.3;
+  }
+  35% {
+    transform: scale(0.2);
+    opacity: 0.4;
+  }
+  50% {
+    transform: scale(0.4);
+    opacity: 0.5;
+  }
+  55% {
+    transform: scale(0.7);
+    opacity: 0.6;
+  }
+  75% {
+    transform: scale(1.1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.1);
+    opacity: 1;
+  }
+}
+.heart__full {
+  position: relative;
+  right: 35px;
+  background: linear-gradient(#9356DC, #FF79DA);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: heart 1300ms both paused infinite;
+}
+.heart__full:hover {
+  animation-play-state: running;
+}
+.heart__empty:hover + .heart__full {
+  animation-play-state: running;
 }
 
-.heart {
-  opacity: 0.5;
-  position: relative;
-  right: 30px;
+.btn {
+  background: linear-gradient(#FF79DA, 60%, #9356DC);
+  border-radius: 50px;
+  height: 50px;
+  width: 220px;
+  padding-top: 15px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.2);
+  transition: all 300ms;
+}
+.btn__text {
+  text-align: center;
+  color: white;
+}
+.btn:hover {
+  opacity: 0.9;
+  box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.4);
+}
+
+@keyframes spinner {
+  0% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 1;
+  }
+  99% {
+    left: 10%;
+  }
+  100% {
+    rotate: 5turn;
+    opacity: 0;
+    left: 100%;
+  }
+}
+@keyframes disappear {
+  0% {
+    opacity: 1;
+  }
+  99% {
+    left: 0;
+  }
+  100% {
+    opacity: 0;
+    left: 100%;
+  }
+}
+.accueil::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+  background: white;
+  opacity: 0;
+  animation: disappear 440ms 1960ms both;
+}
+.accueil::after {
+  content: "";
+  background-position: center;
+  position: fixed;
+  top: 10%;
+  right: 0;
+  bottom: 0;
+  left: 10%;
+  z-index: 1;
+  background: radial-gradient(circle at 50% 0, #9356dc, rgba(147, 86, 220, 0) 70.71%), radial-gradient(circle at 6.7% 75%, #ff79da, rgba(255, 121, 218, 0) 70.71%), radial-gradient(circle at 93.3% 75%, #99e2d0, rgba(153, 226, 208, 0) 70.71%);
+  opacity: 0;
+  border-radius: 100%;
+  width: 80%;
+  height: 0;
+  padding-bottom: 80%;
+  animation: spinner linear 2400ms forwards;
 }
 
 /*# sourceMappingURL=style.css.map */
