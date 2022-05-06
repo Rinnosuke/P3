@@ -1,0 +1,52 @@
+.menus{
+    background-color: $color-lightergrey;
+    padding: 20px;
+}
+
+.menu{
+    &__heading{
+        font-weight: normal;
+        &::after{
+            content: "";
+            display: flex;
+            position: relative;
+            top: 3px;
+            width: 50px;
+            height: 3px;
+            margin-bottom: 20px;
+            background-color: $color-tert;
+        }
+    }
+    &__item{
+        background-color: white;
+        border-radius: 20px;
+        margin: 15px;
+        margin-left: 0px;
+        margin-right: 0px;
+        padding: 15px;
+        @include hover-shadow-btn;
+    }
+    &__check{
+        display: none;
+    }
+}
+
+.dish{
+    &__name{
+        margin-bottom: 5px;
+    }
+    &__price{
+        position: absolute;
+        right: 40px;
+    }
+}
+
+.commander{
+    background-color: $color-lightergrey;
+    margin: -20px;
+    padding: 20px;
+    padding-bottom: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
