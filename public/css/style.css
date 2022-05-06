@@ -239,23 +239,72 @@ h1 {
   margin-left: 0px;
   margin-right: 0px;
   padding: 15px;
+  height: 80px;
   box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.2);
   transition: all 300ms;
+  position: relative;
 }
 .menu__item:hover {
   opacity: 0.9;
   box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.4);
 }
-.menu__check {
-  display: none;
+.menu__item:nth-of-type(1) {
+  animation: apparition 600ms 600ms both;
+}
+.menu__item:nth-of-type(2) {
+  animation: apparition 600ms 800ms both;
+}
+.menu__item:nth-of-type(3) {
+  animation: apparition 600ms 1000ms both;
+}
+.menu__item:nth-of-type(4) {
+  animation: apparition 600ms 1200ms both;
+}
+.menu__item:hover .menu__check {
+  animation-play-state: running;
 }
 
-.dish__name {
+.dish__text {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
   margin-bottom: 5px;
+  width: 90%;
+  animation: shrink 600ms paused infinite alternate;
 }
 .dish__price {
   position: absolute;
-  right: 40px;
+  right: 5%;
+  animation: move 600ms paused infinite alternate;
+}
+.dish__check {
+  color: white;
+  background-color: #99E2D0;
+  width: 20%;
+  height: 80px;
+  font-size: 24px;
+  padding: 28px 7%;
+  border-radius: 0 20px 20px 0;
+  position: absolute;
+  right: 0px;
+  bottom: 0px;
+  transform-origin: right;
+  animation: check 600ms paused infinite alternate;
+}
+.dish__check i {
+  animation: turn 1200ms paused infinite;
+}
+.dish:hover .dish__text {
+  animation-play-state: running;
+}
+.dish:hover .dish__price {
+  animation-play-state: running;
+}
+.dish:hover .dish__check {
+  animation-play-state: running;
+}
+.dish:hover .dish__check i {
+  animation-play-state: running;
 }
 
 .commander {
@@ -268,6 +317,78 @@ h1 {
   align-items: center;
 }
 
+@keyframes apparition {
+  0% {
+    bottom: -10px;
+    opacity: 0;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    bottom: 0;
+    opacity: 1;
+  }
+}
+@keyframes turn {
+  0% {
+    transform: rotate(0);
+  }
+  10% {
+    transform: rotate(0);
+  }
+  45% {
+    transform: rotate(360deg);
+  }
+  50% {
+    transform: rotate(360deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes check {
+  0% {
+    transform: scaleX(0);
+  }
+  10% {
+    transform: scaleX(0);
+  }
+  90% {
+    transform: scaleX(1);
+  }
+  100% {
+    transform: scaleX(1);
+  }
+}
+@keyframes shrink {
+  0% {
+    width: 90%;
+  }
+  10% {
+    width: 90%;
+  }
+  90% {
+    width: 70%;
+  }
+  100% {
+    width: 70%;
+  }
+}
+@keyframes move {
+  0% {
+    right: 5%;
+  }
+  10% {
+    right: 5%;
+  }
+  90% {
+    right: 22%;
+  }
+  100% {
+    right: 22%;
+  }
+}
 @keyframes heart {
   0% {
     transform: scale(0);

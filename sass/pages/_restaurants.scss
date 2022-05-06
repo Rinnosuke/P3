@@ -24,21 +24,66 @@
         margin-left: 0px;
         margin-right: 0px;
         padding: 15px;
+        height: 80px;
         @include hover-shadow-btn;
-    }
-    &__check{
-        display: none;
+        position: relative;
+        @for $i from 1 through 4{
+            &:nth-of-type(#{$i}){
+                animation: apparition 600ms ($i*200)+400ms both;
+            }
+        }
+        &:hover{
+            .menu__check{
+                animation-play-state: running;
+            }
+        }
     }
 }
 
 .dish{
-    &__name{
+    &__text{
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
         margin-bottom: 5px;
+        width: 90%;
+        animation: shrink $animation-duration paused infinite alternate;
     }
     &__price{
         position: absolute;
-        right: 40px;
+        right: 5%;
+        animation: move $animation-duration paused infinite alternate;
     }
+    &__check{
+        color: white;
+        background-color: $color-tert;
+        width: 20%;
+        height: 80px;
+        font-size: 24px;
+        padding: 28px 7%;
+        border-radius: 0 20px 20px 0;
+        position: absolute;
+        right: 0px;
+        bottom: 0px;
+
+        transform-origin: right;
+        animation: check $animation-duration  paused infinite alternate;
+        & i{
+            animation: turn $animation-duration*2 paused infinite;
+        }
+    }
+    &:hover .dish__text{
+        animation-play-state: running;
+    }
+    &:hover .dish__price{
+        animation-play-state: running;
+    }
+    &:hover .dish__check{
+        animation-play-state: running;
+    }
+    &:hover .dish__check i{
+        animation-play-state: running;
+    } 
 }
 
 .commander{
@@ -49,4 +94,81 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+@keyframes apparition{
+    0%{
+        bottom: -10px;
+        opacity: 0;
+    }
+    80%{
+        opacity: 1;
+    }
+    100%{
+        bottom: 0;
+        opacity: 1;
+    }
+}
+
+@keyframes turn{
+    0%{
+        transform: rotate(0);
+    }
+    10%{
+        transform: rotate(0);
+    }
+    45%{
+        transform: rotate(360deg);
+    }
+    50%{
+        transform: rotate(360deg);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes check{
+    0%{
+        transform: scaleX(0);
+    }
+    10%{
+        transform: scaleX(0);
+    }
+    90%{
+        transform: scaleX(1);
+    }
+    100%{
+        transform: scaleX(1);
+    }
+}
+
+@keyframes shrink{
+    0%{
+        width: 90%;
+    }
+    10%{
+        width: 90%;
+    }
+    90%{
+        width: 70%;
+    }
+    100%{
+        width: 70%;
+    }
+}
+
+@keyframes move{
+    0%{
+        right: 5%;
+    }
+    10%{
+        right: 5%;
+    }
+    90%{
+        right: 22%;
+    }
+    100%{
+        right: 22%;
+    }
 }
