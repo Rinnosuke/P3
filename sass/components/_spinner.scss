@@ -11,7 +11,7 @@
         left: 10%;
     }
     100%{
-        rotate: 5turn;
+        transform: rotate(5turn);
         opacity: 0;
         left: 100%;
     }
@@ -67,11 +67,10 @@
     padding-bottom: 80%;
 
     animation: spinner linear 2400ms forwards;
+    @include desktop-only{
+        width: 40%;
+        padding-bottom: 40%;
+        margin-left: 20%;
     }
-}
-
-.check{
-    &__icone{
-        
     }
 }
